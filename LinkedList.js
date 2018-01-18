@@ -145,3 +145,5 @@ for (let i = 1; i < list.size + 1; i++) {
 }
 // list.readNode(5);
 // list.readNode(2);
+
+module.exports = { Node, LinkedList };
