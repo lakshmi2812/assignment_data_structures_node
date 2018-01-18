@@ -64,7 +64,6 @@ class LinkedList {
     //e.next(prevNode)
     //1,2,3,4,e,5,6,7,8
     //1,2,3,4,e
-    //this.tail is still 4
 
     prevNode.setNext(node);
     node.setNext(prevNext);
