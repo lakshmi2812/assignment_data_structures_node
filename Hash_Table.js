@@ -1,9 +1,11 @@
-let node = require("./LinkedList").Node;
+let Node = require("./LinkedList").Node;
 let LinkedList = require("./LinkedList").LinkedList;
+const fs = require("fs");
 
 class HashTable {
   constructor() {
     this.table = new Array(26);
+    this.table.fill(undefined);
     //this.table = this.table.map(idx => new LinkedList());
   }
 
@@ -22,10 +24,68 @@ class HashTable {
     if (!this.table[idx]) {
       this.table[idx] = new LinkedList();
     }
-    let node = new Node({ word: word, definition: null });
+    let node = new Node({
+      word: word,
+      definition: `The definition of '${word}' is '${word}'.`
+    });
     let list = this.table[idx];
     list.addToEnd(node);
   }
 
-  renderList() {}
+  renderList() {
+    this.table.forEach((list, idx) => {
+      if (!list) {
+        console.log(`No words in this bucket, index ${idx}`);
+      } else {
+        console.log(`There are ${list.size} nodes in this list, index ${idx}`);
+
+        let currentNode = list.head;
+        while (currentNode) {
+          console.log(`Word: ${currentNode.word}`);
+          currentNode = currentNode.next;
+        }
+      }
+    });
+  }
+
+  definition(word) {
+    let idx = this.hashFunction(word);
+    if (!this.table[idx]) {
+      return `${word} is not defined`;
+    }
+    let steps = 1;
+    let currentNode = this.table[idx].head;
+
+    while (currentNode && currentNode.word !== word) {
+      currentNode = currentNode.next;
+      steps += 1;
+    }
+
+    console.log(`It took ${steps} to locate the word`);
+
+    if (currentNode) {
+      return currentNode.definition;
+    }
+
+    return `${word} is not defined`;
+  }
 }
+
+let hash = new HashTable();
+
+hash.insert("bird");
+hash.insert("cat");
+hash.insert("dat");
+hash.insert("pop");
+hash.insert("huge");
+hash.insert("tiny");
+hash.insert("board");
+hash.insert("BARTMAN");
+
+console.log(hash.definition("board"));
+console.log(hash.definition("barn"));
+
+//word
+
+let words = fs.readFileSync("./words.txt", "utf8");
+words = words.split("\n");

@@ -83,8 +83,6 @@ class LinkedList {
     let remainingSteps = index - 1;
 
     for (let i = 0; i < remainingSteps; i++) {
-      console.log(i);
-
       currentNode = currentNode.next;
     }
     return currentNode;
@@ -123,27 +121,27 @@ class LinkedList {
 
 //Testing
 
-let new_node = new Node({ word: "cat", definition: "stupid animal" });
-console.log(new_node.next);
+// let new_node = new Node({ word: "cat", definition: "stupid animal" });
+// console.log(new_node.next);
 
-let list = new LinkedList();
+// let list = new LinkedList();
 
-list.addToEnd(new Node({ word: "cat", definition: "stupid animal" }));
-list.addToEnd(new Node({ word: "dog", definition: "cute animal" }));
-list.addToEnd(new Node({ word: "rose", definition: "nice flower" }));
-list.addToEnd(new Node({ word: "hi", definition: "greeting" }));
-list.addToEnd(new Node({ word: "bye", definition: "farewell" }));
+// list.addToEnd(new Node({ word: "cat", definition: "stupid animal" }));
+// list.addToEnd(new Node({ word: "dog", definition: "cute animal" }));
+// list.addToEnd(new Node({ word: "rose", definition: "nice flower" }));
+// list.addToEnd(new Node({ word: "hi", definition: "greeting" }));
+// list.addToEnd(new Node({ word: "bye", definition: "farewell" }));
 
-console.log("Initial List: *****************");
-for (let i = 1; i < list.size + 1; i++) {
-  console.log(list.readNode(i));
-}
-list.reverseList();
-console.log("Reversed List: *****************");
-for (let i = 1; i < list.size + 1; i++) {
-  console.log(list.readNode(i));
-}
-// list.readNode(5);
-// list.readNode(2);
+// console.log("Initial List: *****************");
+// for (let i = 1; i < list.size + 1; i++) {
+//   console.log(list.readNode(i));
+// }
+// list.reverseList();
+// console.log("Reversed List: *****************");
+// for (let i = 1; i < list.size + 1; i++) {
+//   console.log(list.readNode(i));
+// }
+// // list.readNode(5);
+// // list.readNode(2);
 
 module.exports = { Node, LinkedList };
