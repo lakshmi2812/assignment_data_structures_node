@@ -1,6 +1,7 @@
 # assignment_data_structures_node
 
 <<<<<<< HEAD
+
 1. Accessing an item by index in an array
 
 * o(1)
@@ -35,9 +36,8 @@ Inserting a value to an Object
 
 Retrieving the keys of an Object ({ foo: "bar" }.keys)
 
-* o(n)
-=======
-# #Big-O Warmup Answers
+* # o(n)
+  # #Big-O Warmup Answers
 
 1. O(1) --> constant time operation
 2. O(n) --> because we have to shift every element in the array one position to
@@ -54,4 +54,11 @@ Retrieving the keys of an Object ({ foo: "bar" }.keys)
 8. O(1) --> No order, no traversing, just make a new element at a certain
    address in memory.
 9. O(n) --> because obviously
->>>>>>> 57d01d7108ddca2f2edea276582b915e5863e67b
+
+* # HashTable Big-O
+
+1. insert an element --> O(n), where n is the position in the linked list where
+   it needs to be inserted
+2. lookup an element --> O(n), depends on where in the linked list, the word is
+   located
+3.

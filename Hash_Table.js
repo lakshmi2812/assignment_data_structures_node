@@ -39,11 +39,11 @@ class HashTable {
       } else {
         console.log(`There are ${list.size} nodes in this list, index ${idx}`);
 
-        let currentNode = list.head;
-        while (currentNode) {
-          console.log(`Word: ${currentNode.word}`);
-          currentNode = currentNode.next;
-        }
+        // let currentNode = list.head;
+        // while (currentNode) {
+        //   console.log(`Word: ${currentNode.word}`);
+        //   currentNode = currentNode.next;
+        // }
       }
     });
   }
@@ -61,7 +61,7 @@ class HashTable {
       steps += 1;
     }
 
-    console.log(`It took ${steps} to locate the word`);
+    console.log(`It took ${steps} steps to locate the word`);
 
     if (currentNode) {
       return currentNode.definition;
@@ -89,3 +89,10 @@ console.log(hash.definition("barn"));
 
 let words = fs.readFileSync("./words.txt", "utf8");
 words = words.split("\n");
+words.forEach(eachWord => {
+  hash.insert(eachWord);
+});
+
+//hash.renderList();
+
+hash.definition("sad");
